@@ -41,15 +41,15 @@ public class BooksController {
         return "redirect:/books";
     }
 
-    @PutMapping
+    @PostMapping("/{id}/edit")
     public String update(@ModelAttribute("book") Book book) {
         bookDao.update(book);
-        return "/books/book_list"; // or redirect?
+        return "redirect:/books";
     }
 
-    @DeleteMapping
-    public String delete(@RequestParam("id") int id) {
+    @PostMapping("/{id}/delete")
+    public String delete(@PathVariable("id") int id) {
         bookDao.delete(id);
-        return "/books/book_list";
+        return "redirect:/books";
     }
 }

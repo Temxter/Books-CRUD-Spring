@@ -6,6 +6,13 @@
     <title>Book list</title>
 </head>
 <body>
+<div class="navbar navbar-dark bg-dark shadow-sm">
+    <div class="container d-flex justify-content-between">
+        <a href="/books" class="navbar-brand d-flex align-items-center">
+            <strong>Books</strong>
+        </a>
+    </div>
+</div>
 <section class="jumbotron text-center">
     <div class="container">
         <h1 class="jumbotron-heading">Books</h1>
@@ -27,8 +34,7 @@
                 <td th:text="${book.getAuthor()}"></td>
                 <td><a class="btn btn-info" th:href="@{books/{id}/edit(id=${book.getId()})}" role="button">Edit</a></td>
                 <td>
-                    <form action="/books" method="delete">
-                        <input type="hidden" name="id" th:value="${book.getId()}">
+                    <form th:action="@{/books/{id}/delete(id=${book.getId()})}" method="post">
                         <input type="submit" class="btn btn-danger" value="Delete">
                     </form>
                 </td>
