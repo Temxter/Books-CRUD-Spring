@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>New Book</title>
+</head>
+<body>
+<div class="container">
+    <h1 class="jumbotron-heading">New Book</h1>
+    <form th:method="put" th:action="@{/books}" th:object="${book}">
+        <div class="form-group">
+            <label for="id">Book id</label>
+            <input type="text" disabled class="form-control" id="id" th:placeholder="${book.getId()}" th:field="*{id}">
+        </div>
+        <div class="form-group">
+            <label for="name">Book name</label>
+            <input type="text" class="form-control" id="name" th:placeholder="${book.getName()}" th:field="*{name}">
+        </div>
+        <div class="form-group">
+            <label for="author">Book name</label>
+            <input type="text" class="form-control" id="author" th:placeholder="${book.getAuthor()}" th:field="*{author}">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>
